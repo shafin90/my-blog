@@ -7,15 +7,12 @@ import UploadImg from '../UploadImg/UploadImg';
 import AuthorName from '../AuthorName/AuthorName';
 import Description from '../Description/Description';
 import Title from '../Title/Title';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+
 
 
 
 const PublishBlog = () => {
-    useEffect(() => {
-        AOS.init();
-    }, []);
+
     return (
         <div className="flex min-h-screen flex-col items-start justify-start px-6 py-6">
             <h1 data-aos="zoom-out-down" className='  mb-10 mt-7 text-5xl font-bold text-center w-full text-fuchsia-950'>Write your blog here</h1>
