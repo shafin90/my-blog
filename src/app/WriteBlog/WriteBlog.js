@@ -6,7 +6,7 @@ import { authContext } from '../layout';
 import { useRouter } from 'next/navigation';
 
 const WriteBlog = () => {
-    const { img, trigger, setTrigger, title, description } = useContext(authContext);
+    const { img, trigger, setTrigger, title, description, authorName } = useContext(authContext);
     const [editorHtml, setEditorHtml] = useState(``);
     const router = useRouter();
 
@@ -34,7 +34,8 @@ const WriteBlog = () => {
             content: editorHtml,
             image: img,
             title,
-            description
+            description,
+            authorName
         };
 
         // Send the data to the server using the fetch API

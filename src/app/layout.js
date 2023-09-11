@@ -22,6 +22,7 @@ export default function RootLayout({ children }) {
   const [trigger2,setTrigger2] = useState(true);
   const [title, setTitle] = useState('');
   const [id, setId] = useState('');
+  const [authorName, setAuthorName] = useState('');
   
   
   useEffect(() => {
@@ -46,7 +47,9 @@ export default function RootLayout({ children }) {
     id,
     setId,
     trigger2,
-    setTrigger2
+    setTrigger2,
+    authorName,
+    setAuthorName
   }
 
   return (

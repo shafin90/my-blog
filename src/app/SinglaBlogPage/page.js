@@ -6,7 +6,7 @@ import 'aos/dist/aos.css';
 
 
 const SingleBlogPage = () => {
-    const { id, blogs, trigger2 } = useContext(authContext);
+    const { id, blogs, trigger2, authorName } = useContext(authContext);
     const [currentBlog, setCurrentBlog] = useState(null);
     
     useEffect(() => {
@@ -39,7 +39,8 @@ const SingleBlogPage = () => {
 
     return (
         <div >
-            <h1  data-aos-duration="1000" data-aos="flip-left" className="w-full text-center font-extrabold text-fuchsia-950 text-8xl my-20">{currentBlog?.title}</h1>
+            <h1  data-aos-duration="1000" data-aos="flip-left" className="w-full text-center font-extrabold text-fuchsia-950 text-7xl mt-20 mb-4">{currentBlog?.title}</h1>
+            <p className=" text-slate-500 mb-5 ms-32">Author Name: {currentBlog?.authorName}</p>
             <img  data-aos-duration="2000" data-aos="zoom-in" className=" w-7/12 h-3/6 mx-auto mb-16" src={currentBlog?.image} alt={currentBlog?.title} />
             {renderContent()}
         </div>
