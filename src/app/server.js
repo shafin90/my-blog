@@ -5,12 +5,8 @@ require('dotenv').config()
 const app = express();
 const port = process.env.PORT || 8000;
 
-
 app.use(cors());
 app.use(express.json());
-
-
-
 
 const uri = `mongodb+srv://mashrafiahnam:IOwrG4DoOlIGCD3G@cluster0.yhuz2xd.mongodb.net/?retryWrites=true&w=majority`;
 
@@ -23,46 +19,32 @@ const client = new MongoClient(uri, {
 });
 
 
-
 async function run() {
   try {
 
-
-
-
-
     const userCollection = client.db("Blog").collection('blogs');
 
-
-
-
-
-
     app.get('/blogs', async (req, res) => {
-        try {
-          const cursor = userCollection.find();
-          const result = await cursor.toArray();
-          res.json(result);
-        } catch (error) {
-          console.error('Error fetching blogs:', error);
-          res.status(500).json({ error: 'Internal Server Error' });
-        }
-      });
-      
-      app.post('/blogs', async (req, res) => {
-        try {
-          const blog = req.body;
-          const result = await userCollection.insertOne(blog);
-          res.status(201).json({ message: 'Blog saved successfully', insertedId: result.insertedId });
-        } catch (error) {
-          console.error('Error saving blog:', error);
-          res.status(500).json({ error: 'Internal Server Error' });
-        }
-      });
+      try {
+        const cursor = userCollection.find();
+        const result = await cursor.toArray();
+        res.json(result);
+      } catch (error) {
+        console.error('Error fetching blogs:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+      }
+    });
 
-    
-
-
+    app.post('/blogs', async (req, res) => {
+      try {
+        const blog = req.body;
+        const result = await userCollection.insertOne(blog);
+        res.status(201).json({ message: 'Blog saved successfully', insertedId: result.insertedId });
+      } catch (error) {
+        console.error('Error saving blog:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+      }
+    });
 
     // await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
@@ -72,8 +54,6 @@ async function run() {
   }
 }
 run().catch(console.dir);
-
-
 
 app.get('/hi', (req, res) => {
   res.send('shafin,,,your server is running...')

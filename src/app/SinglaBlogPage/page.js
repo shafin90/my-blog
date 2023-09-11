@@ -1,4 +1,7 @@
 'use client'
+
+// This is the blog page.When user click on one blog, the user is redirected to this page to read blog.
+
 import React, { useContext, useEffect, useState } from "react";
 import { authContext } from "../layout";
 import AOS from 'aos';

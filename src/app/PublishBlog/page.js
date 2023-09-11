@@ -1,4 +1,5 @@
 'use client'
+// This component is basically the input fields where user put necessary information  of blog such as author Name, title, description, image, blog.
 
 import React, { useEffect } from 'react';
 import WriteBlog from '../WriteBlog/WriteBlog';
